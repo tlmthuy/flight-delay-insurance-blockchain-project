@@ -1,6 +1,6 @@
-# IS355 — ANTs Q4H648
+# Flight Delay Insurance — A Blockchain Project
 
-Đồ án **Blockchain-Based Parametric Flight Delay Insurance Supported by Historical Aviation Data Analysis** — Mức 4 Research.
+Nhóm **ANTs Q4H648** · IS355 · Mức 4 Research. Tên đề tài đăng ký là **Blockchain-Based Parametric Flight Delay Insurance Supported by Historical Aviation Data Analysis**.
 
 ## Bắt đầu tại đây
 
