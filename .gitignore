@@ -1,0 +1,37 @@
+# Local tooling and credentials
+/.agents/
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.log
+~$*
+
+# Generated web and contract files
+.next/
+dist/
+build/
+coverage/
+/blockchain/cache/
+/blockchain/artifacts/
+/blockchain/typechain-types/
+
+# Local data, model outputs and benchmark logs
+/risk/data/raw/
+/risk/data/processed/
+/risk/models/generated/
+/blockchain/benchmarks/raw/
+
+# Local exports, except the current team task sheet
+/outputs/*
+!/outputs/ants-allocation-20261215/
+/outputs/ants-allocation-20261215/*
+!/outputs/ants-allocation-20261215/ANTs-Phan-cong-15-12-2026.xlsx
