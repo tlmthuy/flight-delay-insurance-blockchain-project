@@ -33,9 +33,9 @@ Repo khai báo mã cho ba mức: Random Forest dự đoán arrival delay từng 
 
 ### gonzalonao / flight-delay-propagation
 
-Repo MIT license, gồm DenseNN, LSTM, BasicGCN, MultiHorizonGAT và spatio-temporal Transformer. Repo mô tả pipeline BTS cộng thời tiết, graph 70 sân bay và dataset 2018–2022. Đây là repo có license và các baseline rõ, nhưng data period và mục tiêu dự đoán theo giờ/sân bay khác dataset đăng ký 2015 và payout theo từng policy. Không nên clone toàn bộ pipeline với deadline một tháng; có thể lấy cấu trúc so sánh baseline/graph hoặc fork riêng nếu nhóm chủ động đổi dataset và trích dẫn.
+Repo MIT license, gồm DenseNN, LSTM, BasicGCN, MultiHorizonGAT và spatio-temporal Transformer. Repo mô tả pipeline BTS cộng thời tiết, graph 70 sân bay và dataset 2018–2022. Đây là repo có license và các baseline rõ, nhưng data period và mục tiêu dự đoán theo giờ/sân bay khác dataset đăng ký 2015 và payout theo từng policy. Không nên clone toàn bộ pipeline cho phạm vi hiện tại; có thể lấy cấu trúc so sánh baseline/graph hoặc fork riêng nếu nhóm chủ động đổi dataset và trích dẫn.
 
-## Khuyến nghị thực nghiệm trong một tháng
+## Khuyến nghị thực nghiệm
 
 1. Định nghĩa nhãn trực tiếp theo hợp đồng bảo hiểm: `1` nếu chuyến bay bị hủy hoặc arrival delay đạt ngưỡng nhóm chốt, `0` nếu không.
 2. Chỉ dùng biến biết được lúc báo giá: hãng, sân bay đi/đến, ngày, thứ, tháng, giờ dự kiến và đặc trưng graph tính từ dữ liệu lịch sử. Không dùng actual departure/arrival time, arrival delay, cancellation cause hoặc biến chỉ xuất hiện sau chuyến bay để dự đoán trước chuyến bay.
@@ -88,7 +88,7 @@ Nguồn: Physica A, https://doi.org/10.1016/j.physa.2023.128526 ; IEEE time-evol
 
 ## Xếp hạng ưu tiên theo khả năng tái lập
 
-Thứ tự này là đánh giá hiện tại cho nhóm ANTs với khoảng một tháng, chưa có xác nhận từ giảng viên. “Dễ tái lập” được ưu tiên hơn con số metric cao trong README, vì các bài toán và cách chia test có thể khác.
+Thứ tự này là đánh giá hiện tại cho phạm vi hiện tại của ANTs, chưa có xác nhận từ giảng viên. “Dễ tái lập” được ưu tiên hơn con số metric cao trong README, vì các bài toán và cách chia test có thể khác.
 
 Hồ sơ đăng ký của nhóm nêu đích danh dataset Kaggle năm 2015. Vì vậy các repo dùng dataset khác chỉ là tham khảo phụ cho đến khi giảng viên chấp thuận đổi nguồn dữ liệu.
 
@@ -101,7 +101,7 @@ Hồ sơ đăng ký của nhóm nêu đích danh dataset Kaggle năm 2015. Vì v
 | **3** | [sudikshas/flight-delay-prediction-pyspark](https://github.com/sudikshas/flight-delay-prediction-pyspark) + 2015–2021 OTPW (flight + NOAA weather) | README báo weighted F1 khoảng 0.82 cho Random Forest, PageRank airport feature và temporal holdout năm 2019. Hữu ích nhất để mượn ý tưởng graph feature/congestion. | 15M hàng thô, Spark/Databricks, data ghép thời tiết và 13 lớp departure delay. Khác insurance target. Data không được đóng gói trong repo theo khảo sát, cần xác minh đường lấy/join trước khi chọn làm nguồn chính. Ưu tiên tham khảo method, không mang metric sang đồ án. |
 | **4** | [nishantsingh-ds/Mining-Big-Data-Flight-Delay-Classification](https://github.com/nishantsingh-ds/Mining-Big-Data-Flight-Delay-Classification) + Kaggle 2015 | Cùng dataset và logistic regression, nhưng quy trình đặt trong AWS/Spark/S3/Athena. | Bỏ phần AWS, chạy local và xác minh notebook thực sự tải được data. README/license/reproducibility cần kiểm tra kỹ trước khi dùng. |
 | **5** | [gonzalonao/flight-delay-propagation](https://github.com/gonzalonao/flight-delay-propagation) + Kaggle 2018–2022 | Repo MIT, có nhiều bậc baseline đến GNN, lockfile và tests. Tốt làm tham khảo graph prediction nếu nhóm đổi dataset có chủ đích. | Dataset khác giai đoạn, task dự đoán airport-hour nhiều horizon thay vì probability cho policy; phụ thuộc PyTorch/GNN và tài nguyên lớn hơn. Chỉ chọn nếu giảng viên chấp nhận đổi data/task và môi trường nhóm chạy được. |
-| **6** | [junzis/atdelay](https://github.com/junzis/atdelay) + EUROCONTROL R&D data | Có DST-GAT gần với network delay research. | Data chính cần xin license; đây là rào cản tái lập lớn trong deadline hiện tại. Không ưu tiên nếu nhóm chưa có quyền truy cập sẵn. |
+| **6** | [junzis/atdelay](https://github.com/junzis/atdelay) + EUROCONTROL R&D data | Có DST-GAT gần với network delay research. | Data chính cần xin license; đây là rào cản tái lập lớn với điều kiện truy cập hiện tại. Không ưu tiên nếu nhóm chưa có quyền truy cập sẵn. |
 
 Repo `aneessaheba/realtime-flight-delay-predictor-bigdata` nêu AUC-ROC khoảng 0.968 và delayed-class F1 khoảng 0.806 trên dữ liệu 2023, nhưng top features bao gồm DEP_DELAY và TAXI_OUT. Đây là thông tin phát sinh sau thời điểm mua bảo hiểm, nên kết quả đó không hợp lệ để định giá trước chuyến bay. Không chọn chỉ vì metric cao.
 

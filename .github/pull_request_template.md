@@ -1,6 +1,6 @@
 ## Task và đầu ra
 
-- Mã task và link issue/sheet
+- Mã task và link issue, nếu có
 - Đầu ra bàn giao và module bị ảnh hưởng
 
 ## Cách kiểm tra

@@ -2,11 +2,11 @@
 
 ## 0. Bắt đầu task trong repo chung
 
-1. Mở [README](README.md) để xác định thư mục phụ trách và [bảng phân công đến 15/12/2026](outputs/ants-allocation-20261215/ANTs-Phan-cong-15-12-2026.xlsx) để lấy mã task, hạn, phụ thuộc và tiêu chí nghiệm thu. Quốc Anh phụ trách `frontend/`, Nguyên phụ trách `risk/`, Thùy phụ trách `blockchain/`. Phần `shared/` cần phối hợp khi thay đổi giao diện giữa các module.
+1. Mở [README](README.md) để xác định thư mục phụ trách và [phân công nhóm](docs/team-allocation.md) để xem đầu ra và người review. Quốc Anh phụ trách `frontend/`, Nguyên phụ trách `risk/`, Thùy phụ trách `blockchain/`. Phần `shared/` cần phối hợp khi thay đổi giao diện giữa các module.
 2. Đọc [CONTRIBUTING](CONTRIBUTING.md) trước khi tạo nhánh, commit hoặc mở PR. Dùng một nhánh ngắn theo mã task, đích PR là `main`, có một thành viên khác review và ghi bằng chứng kiểm tra. Repo remote và cài đặt quyền do nhóm xác nhận khi đưa bộ khung lên.
-3. Dùng [Policy V1](docs/insurance-policy-v1.md) để viết nhãn, contract, fixture và nội dung UI. Nếu tài liệu đề xuất cũ nhắc hoàn phí sau 72 giờ, triển khai theo Policy V1 hiện hành: giữ `Active` và dự trữ trong lúc chờ kết quả hợp lệ. Đối chiếu [decision log](docs/decision-log.md) cho quyết định kỹ thuật và [phản hồi giảng viên](docs/lecturer-feedback.md) cho yêu cầu chưa xác nhận. Dùng sheet hạn 15/12 thay cho các checkpoint 30/11 trong kế hoạch cũ.
+3. Dùng [Policy V1](docs/insurance-policy-v1.md) để viết nhãn, contract, fixture và nội dung UI. Nếu tài liệu đề xuất cũ nhắc hoàn phí sau 72 giờ, triển khai theo Policy V1 hiện hành: giữ `Active` và dự trữ trong lúc chờ kết quả hợp lệ. Đối chiếu [decision log](docs/decision-log.md) cho quyết định kỹ thuật và [phản hồi giảng viên](docs/lecturer-feedback.md) cho yêu cầu chưa xác nhận.
 4. Khi đổi điểm nối, đọc [giao nhận tích hợp](shared/README.md) và cập nhật fixture/schema, producer, consumer liên quan trong cùng PR hoặc chuỗi PR có thứ tự. Local EVM là mục tiêu demo. Giữ Kaggle Flight Delays 2015 làm dữ liệu chính, FlySure là nền tham khảo contract, Prashant là tham khảo pipeline. Xác nhận stack cuối, testnet và mức Graph Analytics với giảng viên khi có quyết định mới.
-5. Khi kết thúc task, ghi lệnh kiểm tra và kết quả thực tế vào PR hoặc sheet. Với số đo B0/B1, đọc [hướng benchmark](docs/project-direction-handoff.md) và [quy tắc module Blockchain](blockchain/README.md). Giữ kết quả và bằng chứng đủ để người khác chạy lại. Dữ liệu lớn, khóa và cấu hình riêng nằm ngoài Git.
+5. Khi kết thúc task, ghi lệnh kiểm tra và kết quả thực tế vào PR. Với số đo B0/B1, đọc [hướng benchmark](docs/project-direction-handoff.md) và [quy tắc module Blockchain](blockchain/README.md). Giữ kết quả và bằng chứng đủ để người khác chạy lại. Dữ liệu lớn, khóa và cấu hình riêng nằm ngoài Git.
 
 ## 1. Vai trò và cách làm việc
 
@@ -333,6 +333,6 @@ Nhóm đã cung cấp nhận xét bằng văn bản: hoàn thiện đề cương
 
 Giảng viên nêu dữ liệu 2015 khá cũ và gợi ý có thể bổ sung dữ liệu mới hơn từ BTS để kiểm tra mức phí; chưa ghi nhận yêu cầu bắt buộc thay dataset chính. Tạm giữ Kaggle 2015 theo hồ sơ cho đến khi có xác nhận khác. Giảng viên khuyến nghị Vyper + Ape + Anvil; trước khi chuyển khỏi Solidity, kiểm tra khả năng thực hiện và xác nhận đây là yêu cầu hay khuyến nghị. Nhận xét này chưa nói rõ Graph Analytics; do đăng ký Mức 4, không tự bỏ phần graph, hãy hỏi phạm vi tối thiểu trước khi mở rộng sang GNN.
 
-Kế hoạch tháng và bản ghi phản hồi chi tiết nằm trong `PROJECT_PLAN_1_MONTH.md`, `docs/lecturer-feedback.md` và `docs/decision-log.md`. Các gợi ý của giảng viên không được mô tả như quyết định đã triển khai cho tới khi nhóm chốt và có bằng chứng.
+Kế hoạch triển khai và bản ghi phản hồi chi tiết nằm trong `PROJECT_PLAN.md`, `docs/lecturer-feedback.md` và `docs/decision-log.md`. Các gợi ý của giảng viên không được mô tả như quyết định đã triển khai cho tới khi nhóm chốt và có bằng chứng.
 
 Khảo sát graph repo chuyên biệt nằm trong `docs/graph-repo-research.md`. `yajun668/FlightDelayPrediction` là method phù hợp để nghiên cứu propagation score, nhưng dùng dữ liệu 2023 và dự đoán departure delay; không coi metric upstream là kết quả ANTs, không tự đổi dataset chính từ Kaggle 2015.

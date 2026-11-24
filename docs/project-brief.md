@@ -10,7 +10,7 @@ Nhóm đề xuất nguyên mẫu bảo hiểm tham số cho chuyến bay trễ h
 
 Blockchain được dùng để công khai điều khoản thực thi, ghi nhận giao dịch và quản lý tiền đã cam kết. Tính đúng của kết quả chuyến bay vẫn phụ thuộc nguồn oracle. Nhóm sẽ phân tích giả định tin cậy và quyền quản trị này trong báo cáo.
 
-## Phạm vi đề xuất cho một tháng
+## Phạm vi đề xuất
 
 | Thành phần | Dự kiến thực hiện |
 | --- | --- |

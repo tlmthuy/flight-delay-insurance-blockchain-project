@@ -1,6 +1,6 @@
-# Nội dung checkpoint cho bảng sản phẩm nộp
+# Checklist giao phẩm
 
-**Cách dùng:** các tên trong cột “Phân công” là **đầu mối quản lý giao phẩm**: giữ cấu trúc, nhắc hạn, chia phần cho thành viên, nhận phần đã điền, kiểm tra tính nhất quán và đóng gói. Đầu mối không phải người duy nhất làm toàn bộ sản phẩm.
+**Cách dùng:** các tên trong cột “Phân công” là **đầu mối quản lý giao phẩm**: giữ cấu trúc, chia phần cho thành viên, nhận phần đã điền, kiểm tra tính nhất quán và đóng gói. Đầu mối không phải người duy nhất làm toàn bộ sản phẩm.
 
 **Đầu mối theo bảng nhóm gửi:**
 
@@ -12,11 +12,9 @@
 
 **Người điền nội dung chuyên môn theo phân công module hiện tại:** Quốc Anh — Web3 integration; Nguyên — Data/ML/Graph; Thùy — Smart Contract/oracle/test. Tại mỗi checkpoint, đầu mối giao phẩm cập nhật checkbox khi đã nhận đủ phần, review xong và lưu bản tương ứng.
 
-## Bảng mốc 3 ngày
+## Trình tự chuẩn bị và nghiệm thu
 
-Ngày bắt đầu lấy theo bảng nhóm: **16/11/2026**. Các checkpoint cách 3 ngày là 16, 19, 22, 25, 28/11; **30/11 là mốc chốt bàn giao** (2 ngày sau checkpoint gần nhất để còn buffer sửa lỗi).
-
-| Sản phẩm / đầu mối | 16/11 — Sườn & giao việc | 19/11 — Bản khung chạy được | 22/11 — Bản tích hợp đầu | 25/11 — Đủ nội dung & feature freeze | 28/11 — Review/diễn tập | 30/11 — Đóng gói cuối |
+| Sản phẩm / đầu mối | Sườn & giao việc | Bản khung chạy được | Bản tích hợp đầu | Đủ nội dung & feature freeze | Review/diễn tập | Đóng gói cuối |
 |---|---|---|---|---|---|---|
 | **Source Code — Nguyên** | Tạo/kiểm tra repo structure, branch và issue; chốt interface/ABI, định dạng quote, output model và người phụ trách từng module. Thùy: contract skeleton; Quốc Anh: Web3/DApp shell; Nguyên: data pipeline skeleton. | Thùy nộp policy purchase + access-control skeleton/test; Quốc Anh nộp connect wallet/network và đọc contract stub; Nguyên nộp schema, label draft, baseline chạy được trên sample. Có hướng dẫn chạy từng module. | Chạy được luồng local quote → mua policy → oracle mock → eligibility/payout; dashboard hiển thị ít nhất một kết quả model và một graph view/metric. Lưu log lỗi và phân công fix. | **Feature freeze.** Merge code, test happy path + reject paths; model/graph ablation có output; ít nhất 3 risk/security mitigations được thể hiện trong thiết kế/test. Không thêm tính năng mới. | Thành viên không viết module đó chạy thử theo README; sửa bug, kiểm tra config/ABI/address, xóa key/dữ liệu bí mật; lưu evidence test và transaction. | Tag/release source cuối; kiểm tra file/folder cần nộp; kèm scripts, `.env.example` không chứa secret, artifacts metric nhỏ, link/ghi chú lấy dataset. Chạy lại demo lần cuối. |
 | **README — Nguyên** | Tạo mục lục: overview, prerequisites, install, data, model, graph, contract, DApp, demo, limitations; giao mỗi người viết mục chạy module mình. | Thùy điền lệnh compile/test/deploy; Quốc Anh điền ví/network/DApp; Nguyên điền data path, preprocess/train/evaluate, graph; đánh dấu phần nào chưa xác nhận. | Có hướng dẫn end-to-end bản nháp; ghi chính xác môi trường, dependencies, dataset cần tải và cách cấu hình địa chỉ contract. | Tất cả lệnh đã chốt; không còn placeholder quan trọng; ghi rõ oracle mock, model off-chain, kết quả chưa production. | Người khác làm theo từ checkout sạch; ghi lại lỗi và sửa README/code cho khớp. | README cuối khớp source release, chỉ dẫn cài/chạy/demo theo đúng thứ tự, có troubleshooting ngắn và expected output. |
@@ -35,5 +33,3 @@ Ngày bắt đầu lấy theo bảng nhóm: **16/11/2026**. Các checkpoint các
 ## Quy tắc cập nhật checkbox
 
 Đánh dấu một mốc hoàn thành khi đủ cả ba điều kiện: **(1)** thành viên gửi phần của mình, **(2)** đầu mối tích hợp vào đúng giao phẩm và review, **(3)** artifact/bản nháp được lưu trong repo hoặc thư mục nhóm. Nếu mới có code rời hoặc placeholder thì để chưa hoàn thành.
-
-Không có file spreadsheet gốc trong repository hiện tại; tài liệu này là nội dung copy vào các cột ngày của bảng nhóm. Nếu ngày nộp thực tế khác 30/11, giữ thứ tự checkpoint và dời cột cuối theo hạn của giảng viên.

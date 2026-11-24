@@ -1,10 +1,10 @@
-# Khung Data, ML và Graph trong 2 tuần
+# Khung Data, ML và Graph
 
 **Dự án:** ANTs — Blockchain-Based Parametric Flight Delay Insurance  
-**Mục tiêu:** tạo một nhánh Data/ML/Graph nhỏ, kiểm chứng được, tích hợp được vào DApp và đủ bằng chứng cho báo cáo/demo trong 14 ngày.  
-**Trạng thái:** kế hoạch thực thi; các điều khoản policy và metric bên dưới cần được nhóm chốt ngày 1.
+**Mục tiêu:** tạo một nhánh Data/ML/Graph nhỏ, kiểm chứng được, tích hợp được vào DApp và đủ bằng chứng cho báo cáo và demo.  
+**Trạng thái:** kế hoạch thực thi; các điều khoản policy và metric bên dưới theo Policy V1 và tiêu chí đánh giá của nhóm.
 
-Phân công chi tiết theo 3 thành viên và 5 giao phẩm được ghi riêng tại [`docs/two-week-team-allocation.md`](two-week-team-allocation.md).
+Phân công chi tiết theo 3 thành viên và 5 giao phẩm được ghi riêng tại [phân công nhóm](team-allocation.md).
 
 ## 1. Phạm vi chốt để kịp bàn giao
 
@@ -16,8 +16,8 @@ Phân công chi tiết theo 3 thành viên và 5 giao phẩm được ghi riêng
 
 - **Đơn vị dự đoán:** một chuyến bay (`flight_id + flight_date`), tại thời điểm mua/báo giá.
 - **Label:** `eligible = 1` nếu chuyến bị hủy hoặc thời gian đến trễ đạt ngưỡng policy `T`; `eligible = 0` nếu chuyến hoàn tất và trễ dưới `T`.
-- **`T`:** nhóm phải chốt cùng điều khoản contract trong ngày đầu. Nếu chưa có chỉ dẫn, hỏi giảng viên/người hướng dẫn ngay; ví dụ 120 phút chỉ là đề xuất minh họa, không phải ngưỡng đã được duyệt.
-- **Chuyến diverted:** chốt rõ trong ngày đầu. Phương án gọn: loại khỏi thí nghiệm chính, báo riêng số lượng và làm một phân tích nhạy cảm nếu còn thời gian.
+- **`T`:** nhóm phải chốt cùng điều khoản contract trước khi tạo nhãn. Nếu chưa có chỉ dẫn, hỏi giảng viên/người hướng dẫn ngay; ví dụ 120 phút chỉ là đề xuất minh họa, không phải ngưỡng đã được duyệt.
+- **Chuyến diverted:** chốt rõ trước khi tạo nhãn. Phương án gọn: loại khỏi thí nghiệm chính, báo riêng số lượng và làm một phân tích nhạy cảm nếu còn thời gian.
 - Dataset không có “ground truth được bảo hiểm”. Nhóm tạo nhãn nghiên cứu bằng cách áp điều khoản policy lên kết quả chuyến bay thật; ghi rõ đây là nhãn dẫn xuất.
 - **Phân biệt hai chức năng:** ML ước lượng rủi ro để tạo quote trước chuyến bay; oracle cung cấp kết quả thực tế sau chuyến bay để contract quyết định eligibility/payout. Không dùng dự đoán ML làm bằng chứng chuyến đã trễ.
 
@@ -30,7 +30,7 @@ Phân công chi tiết theo 3 thành viên và 5 giao phẩm được ghi riêng
 5. File kết quả gọn (JSON/CSV) để dashboard hiển thị xác suất, quote và biểu đồ.
 6. Mô tả luồng off-chain → quote → contract và oracle → kết quả thật → payout; test/demo dùng mock oracle trên local chain.
 
-**Không đưa vào phạm vi 2 tuần:** GNN/GCN/GAT, Spark, weather join, đổi dataset chính, dự báo thời gian thực, oracle production hoặc model chạy trực tiếp trên chain.
+**Ngoài phạm vi triển khai chính:** GNN/GCN/GAT, Spark, weather join, đổi dataset chính, dự báo thời gian thực, oracle production hoặc model chạy trực tiếp trên chain.
 
 ## 2. Quy trình xử lý dữ liệu
 
@@ -117,39 +117,32 @@ User wallet → DApp → policy contract ← mock oracle ← flight outcome
 - Dashboard có tab: (1) data summary/label balance, (2) model comparison/calibration, (3) airport network, (4) quote/policy/transaction/payout.
 - Không ghi dataset, feature lớn hoặc thông tin cá nhân lên chain; lưu hash/URI/version nếu thật sự cần chứng minh phiên bản.
 
-## 6. Lịch 14 ngày và cổng hoàn thành
+## 6. Trình tự công việc và đầu ra
 
-| Ngày | Công việc chính | Sản phẩm kiểm tra được |
-|---:|---|---|
-| **1** | Chốt policy threshold, cancellation/diversion, split, scope graph; kiểm tra dataset có thể tải và đọc | `docs/decision-log.md` cập nhật; data sample/schema chạy được |
-| **2** | Data inventory, ID, mapping airport, missingness/duplicate | `data/README.md`, `reports/data_quality.md` |
-| **3** | Label và feature pipeline; leakage allow/deny list | Script chạy từ raw → clean table; label counts |
-| **4** | Temporal split, baseline toàn cục/hãng/tuyến; sanity check | Bảng M0 + split manifest |
-| **5** | Logistic Regression pipeline, Brier/PR-AUC/calibration | M1 metric JSON/CSV và plot |
-| **6** | Chốt metric/model; nếu ổn thử XGBoost, nếu lỗi quay về LR | Model đã chọn theo validation và config cố định |
-| **7** | Graph route, PageRank/degree; airport ID join validation | Graph table/plot, số node/edge, fallback counts |
-| **8** | M2 graph ablation cùng split; phân tích lỗi | Bảng M0/M1/M2 và kết luận có/không cải thiện |
-| **9** | Insurance replay: premium, payout, loss ratio, pool stress | CSV/plot tài chính với giả định công khai |
-| **10** | Nối quote/ML output với DApp; contract flow và mock oracle | Luồng end-to-end local hoạt động |
-| **11** | Viết Data/ML/Graph/AI, kiến trúc, limitation và related-work | Các chương báo cáo draft + sơ đồ |
-| **12** | Hoàn thiện báo cáo, bảng test, security, kết quả | PDF draft; số liệu nhất quán với output |
-| **13** | Slide và quay video demo 5–10 phút; chạy lại từ README | Slide + video; evidence tx/metrics |
-| **14** | Tổng duyệt, sửa lỗi, bàn giao source/report/slides/video/README | Release folder; checklist hoàn tất |
+| Công việc chính | Sản phẩm kiểm tra được |
+|---|---|
+| Chốt policy threshold, cancellation/diversion, split, scope graph; kiểm tra dataset có thể tải và đọc | `docs/decision-log.md` cập nhật; data sample/schema chạy được |
+| Data inventory, ID, mapping airport, missingness/duplicate | `data/README.md`, `reports/data_quality.md` |
+| Label và feature pipeline; leakage allow/deny list | Script chạy từ raw → clean table; label counts |
+| Temporal split, baseline toàn cục/hãng/tuyến; sanity check | Bảng M0 + split manifest |
+| Logistic Regression pipeline, Brier/PR-AUC/calibration | M1 metric JSON/CSV và plot |
+| Chốt metric/model; nếu ổn thử XGBoost, nếu lỗi quay về LR | Model đã chọn theo validation và config cố định |
+| Graph route, PageRank/degree; airport ID join validation | Graph table/plot, số node/edge, fallback counts |
+| M2 graph ablation cùng split; phân tích lỗi | Bảng M0/M1/M2 và kết luận có/không cải thiện |
+| Insurance replay: premium, payout, loss ratio, pool stress | CSV/plot tài chính với giả định công khai |
+| Nối quote/ML output với DApp; contract flow và mock oracle | Luồng end-to-end local hoạt động |
+| Viết Data/ML/Graph/AI, kiến trúc, limitation và related-work | Các chương báo cáo draft + sơ đồ |
+| Hoàn thiện báo cáo, bảng test, security, kết quả | PDF draft; số liệu nhất quán với output |
+| Slide và quay video demo 5–10 phút; chạy lại từ README | Slide + video; evidence tx/metrics |
+| Tổng duyệt, sửa lỗi, bàn giao source/report/slides/video/README | Release folder; checklist hoàn tất |
 
-### Chia việc cho 3 thành viên (đề xuất)
+Xem [phân công nhóm](team-allocation.md) để biết người phụ trách và người review.
 
-- **Bạn A — Data/ML lead:** inventory, preprocessing, label, M0/M1, metrics, model artifact.
-- **Bạn B — Graph + evaluation:** graph construction/feature, ablation, dashboard charts, kiểm tra leakage và kết quả tài chính.
-- **Bạn C — Contract/DApp + integration:** quote interface, policy flow, mock oracle, local demo, gas/latency.
-- Cả ba cùng chốt điều khoản ngày 1, rà soát báo cáo ngày 11–14. Mỗi đầu ra có một người chịu trách nhiệm nhưng ít nhất một thành viên khác chạy lại.
+## 7. Ưu tiên khi gặp trở ngại
 
-Nếu nhóm đã có code/contract chia khác thì giữ phân công đang chạy; bảng trên là phương án mặc định, không phải phân công chính thức.
-
-## 7. Cổng giảm phạm vi khi trễ
-
-1. Nếu ngày 3 data pipeline chưa xong: bỏ XGBoost và weather; dùng một file/schema nhỏ được giải thích để hoàn thiện baseline, ưu tiên sửa pipeline chính.
-2. Nếu ngày 6 model chưa ổn: giữ Logistic Regression; không dành thời gian tuning hyperparameter.
-3. Nếu ngày 8 graph không chạy hoặc metric xấu: giữ graph network visualization + feature ablation đã chạy được; báo kết quả trung thực. Không chuyển sang GNN.
+1. Nếu data pipeline chưa ổn định: bỏ XGBoost và weather; dùng một file/schema nhỏ được giải thích để hoàn thiện baseline, ưu tiên sửa pipeline chính.
+2. Nếu mô hình mở rộng chưa ổn: giữ Logistic Regression; không dành thời gian tuning hyperparameter.
+3. Nếu graph feature chưa chạy được hoặc không cải thiện metric: giữ graph network visualization + feature ablation đã chạy được; báo kết quả trung thực. Không chuyển sang GNN.
 4. Nếu dashboard trễ: dùng Streamlit/CSV metric + giao diện quote/policy đơn giản; giữ demo contract chạy end-to-end.
 5. Không cắt test contract, label/leakage audit, README, PDF, slide hoặc video vì đây là sản phẩm bàn giao/bằng chứng bắt buộc trong project brief.
 

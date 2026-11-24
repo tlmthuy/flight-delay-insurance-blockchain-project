@@ -85,7 +85,7 @@ Các giá trị dưới đây cho phép cả ba thành viên thảo luận trên
 
 **Nếu chỉ có mô hình điện năng**, ghi CO₂e là ước tính, kèm đầu vào và giả định. Nếu thiếu cả số đo lẫn mô hình đủ căn cứ, trình bày gas, độ trễ và tài nguyên đã đo, rồi ghi giới hạn của phần CO₂e. Kết quả local mô tả máy và workload thử nghiệm. Gas được báo bằng gas units, còn CO₂e cần dữ liệu hoặc ước tính điện năng riêng.
 
-## 6. Ai làm gì và bàn giao ở mốc nào?
+## 6. Phân công và điều kiện bàn giao
 
 | Thành viên | Phần phụ trách | Đầu ra để teammate nhận và kiểm tra |
 | --- | --- | --- |
@@ -95,14 +95,14 @@ Các giá trị dưới đây cho phép cả ba thành viên thảo luận trên
 
 Mỗi người viết phần báo cáo và cung cấp bằng chứng cho module mình. Đầu mối tổng hợp và kiểm tra tính nhất quán giữa **source code, README, báo cáo PDF, slide và video demo 5–10 phút**. Phần nghiên cứu liên quan cần tối thiểu ba bài bình duyệt theo góp ý của giảng viên. Nhóm xác minh metadata và DOI trước khi trích dẫn, đồng thời ghi rõ phần kế thừa FlySure và phần ANTs tự điều chỉnh, tích hợp hoặc đo lại.
 
-| Mốc nội bộ đã ghi | Điều kiện để đánh dấu đạt |
+| Giai đoạn | Điều kiện để đánh dấu đạt |
 | --- | --- |
-| **22/11 — Tích hợp đầu** | Luồng local chạy từ báo giá đến mua, oracle gửi kết quả và nhận payout. DApp đọc được ít nhất một kết quả model. |
-| **25/11 — Khóa tính năng** | Cố định interface và phiên bản dùng để đo. Có kết quả test, bảng model, mô phỏng quỹ và số liệu gas/độ trễ. Ghi phạm vi Graph Analytics và khả năng đo điện năng/CO₂e để hoàn thiện báo cáo. |
-| **28/11 — Diễn tập** | Một thành viên khác chạy từ checkout sạch theo README. Cả nhóm chạy ba kịch bản demo và kiểm tra PDF, slide, video dựa trên cùng kết quả. |
-| **30/11 — Đóng gói nội bộ** | Chốt phiên bản source và đủ năm giao phẩm. Đối chiếu hạn, kênh nộp và lịch bảo vệ theo thông báo giảng viên. |
+| **Tích hợp đầu** | Luồng local chạy từ báo giá đến mua, oracle gửi kết quả và nhận payout. DApp đọc được ít nhất một kết quả model. |
+| **Khóa tính năng** | Cố định interface và phiên bản dùng để đo. Có kết quả test, bảng model, mô phỏng quỹ và số liệu gas/độ trễ. Ghi phạm vi Graph Analytics và khả năng đo điện năng/CO₂e để hoàn thiện báo cáo. |
+| **Diễn tập** | Một thành viên khác chạy từ checkout sạch theo README. Cả nhóm chạy ba kịch bản demo và kiểm tra PDF, slide, video dựa trên cùng kết quả. |
+| **Đóng gói nội bộ** | Chốt phiên bản source và đủ năm giao phẩm. Đối chiếu hạn, kênh nộp và lịch bảo vệ theo thông báo giảng viên. |
 
-Các mốc trên lấy từ bảng nhóm hiện có. Sau khi đối chiếu nhánh làm việc, cập nhật mốc nào đã đạt và dời ngày nếu cần.
+Đối chiếu nhánh làm việc và lưu bằng chứng cho từng giai đoạn đã đạt.
 
 ## 7. Checklist cho buổi thống nhất
 
@@ -110,5 +110,4 @@ Các mốc trên lấy từ bảng nhóm hiện có. Sau khi đối chiếu nhá
 - [ ] **Stack và code tham khảo.** Chốt commit FlySure, cách xác nhận khuyến nghị Vyper + Ape + Anvil, môi trường local và yêu cầu testnet nếu có.
 - [ ] **Tích hợp.** Chốt fixture, cách sinh `flightId`, schema báo giá, quy tắc ký, ABI/event và thứ tự giao các đầu ra giữa ba thành viên.
 - [ ] **Phạm vi thực nghiệm.** Ghim commit Prashant, chốt temporal split và bộ so sánh M0/M1. Xác nhận với giảng viên liệu phân tích đồ thị sân bay riêng có đủ cho Mức 4. Thống nhất workload B0/B1, thử CodeCarbon hoặc thiết bị đo trên máy benchmark, rồi chốt phạm vi công bố CO₂e dựa trên dữ liệu thu được.
-- [ ] **Mốc và phân công.** Đối chiếu code nhóm đang làm với bảng checkpoint, ghi người phụ trách và ngày cho các mục chưa xong. Xác nhận track chấm, hạn nộp và lịch bảo vệ với giảng viên. Ghi quyết định sau buổi họp vào nhật ký dự án.
-
+- [ ] **Phân công.** Đối chiếu code nhóm đang làm với checklist giao phẩm, ghi người phụ trách và bằng chứng còn thiếu. Xác nhận track chấm với giảng viên. Ghi quyết định sau buổi họp vào nhật ký dự án.

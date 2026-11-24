@@ -30,8 +30,5 @@ coverage/
 /risk/models/generated/
 /blockchain/benchmarks/raw/
 
-# Local exports, except the current team task sheet
-/outputs/*
-!/outputs/ants-allocation-20261215/
-/outputs/ants-allocation-20261215/*
-!/outputs/ants-allocation-20261215/ANTs-Phan-cong-15-12-2026.xlsx
+# Local exports and team planning files
+/outputs/

@@ -5,9 +5,9 @@ Nhóm **ANTs Q4H648** · IS355 · Mức 4 Research. Tên đề tài đăng ký l
 ## Bắt đầu tại đây
 
 1. Đọc [AGENTS.md](AGENTS.md) để nắm context, quy tắc nghiệp vụ, yêu cầu Project Lab và tiêu chí đánh giá.
-2. Mở [bảng phân công đến 15/12/2026](outputs/ants-allocation-20261215/ANTs-Phan-cong-15-12-2026.xlsx) và lấy mã task từ tab của mình.
+2. Xem [phân công nhóm](docs/team-allocation.md) và [checklist giao phẩm](docs/deliverable-checklist.md) để biết ai phụ trách, bàn giao gì và ai review.
 3. Xem [Git flow](CONTRIBUTING.md), [Policy V1](docs/insurance-policy-v1.md) và [giao nhận tích hợp](shared/README.md) trước khi sửa code.
-4. Kiểm tra [nhật ký quyết định](docs/decision-log.md) trước khi đổi dataset, nhãn, graph, stack hoặc kiến trúc. [Kế hoạch một tháng](PROJECT_PLAN_1_MONTH.md) lưu định hướng ban đầu. Deadline hiện hành là **15/12/2026**.
+4. Xem [kế hoạch triển khai](PROJECT_PLAN.md) và kiểm tra [nhật ký quyết định](docs/decision-log.md) trước khi đổi dataset, nhãn, graph, stack hoặc kiến trúc.
 
 ## Cấu trúc
 
@@ -21,13 +21,12 @@ Nhóm **ANTs Q4H648** · IS355 · Mức 4 Research. Tên đề tài đăng ký l
 ├── frontend/          # Quốc Anh · DApp, ví, dashboard, tích hợp
 ├── shared/            # Schema và fixture dùng chung khi được chốt
 ├── docs/              # Policy V1, kiến trúc, quyết định, nghiên cứu
-├── outputs/           # Bảng phân công hiện hành
 └── scripts/           # Prototype nghiệp vụ Python hiện có
 ```
 
 ## Trạng thái hiện tại
 
-Workspace hiện có bộ khung module, tài liệu và prototype nghiệp vụ. Tiến độ Smart Contract, DApp, pipeline model/graph và benchmark được xác nhận bằng nhánh hoặc PR và bằng chứng kiểm tra trong bảng phân công.
+Workspace hiện có bộ khung module, tài liệu và prototype nghiệp vụ. Tiến độ Smart Contract, DApp, pipeline model/graph và benchmark được xác nhận bằng PR và bằng chứng kiểm tra.
 
 ## Chạy prototype nghiệp vụ
 

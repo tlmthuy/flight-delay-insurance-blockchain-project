@@ -1,8 +1,8 @@
-# Kế hoạch 1 tháng — Đồ án IS355 của nhóm ANTs
+# Kế hoạch triển khai đồ án IS355 của nhóm ANTs
 
-> **Cập nhật phạm vi:** nhóm hiện chỉ còn 2 tuần. Dùng kế hoạch 14 ngày tại [`docs/two-week-data-ml-graph-plan.md`](docs/two-week-data-ml-graph-plan.md) làm lịch triển khai Data/ML/Graph và hoàn thiện giao phẩm. Các mốc 4 tuần bên dưới là kế hoạch nền cũ, không còn là lịch thực hiện hiện tại.
+Xem [kế hoạch Data, ML và Graph](docs/data-ml-graph-plan.md) và [checklist giao phẩm](docs/deliverable-checklist.md).
 
-## Mục tiêu tháng
+## Mục tiêu
 
 Hoàn thiện nguyên mẫu có thể demo và đánh giá được cho đề tài **Blockchain-Based Parametric Flight Delay Insurance Supported by Historical Aviation Data Analysis**. Hướng thực hiện cập nhật theo nhận xét giảng viên: bảo hiểm tham số có điều khoản rõ, định phí từ dữ liệu với baseline và mô hình cải tiến, Smart Contract xử lý policy/quỹ/chi trả, phân tích rủi ro Oracle và đánh giá cả kỹ thuật lẫn tài chính.
 
@@ -28,12 +28,12 @@ Hoàn thiện nguyên mẫu có thể demo và đánh giá được cho đề t�
 - **Mô hình:** baseline tỷ lệ biến cố theo hãng (và tuyến nếu đủ mẫu), sau đó Logistic Regression hoặc XGBoost có hiệu chuẩn xác suất. Chia theo thời gian; ưu tiên Brier score/calibration cùng metric phân loại phù hợp.
 - **Policy:** lưu flight ID, ngày bay, giờ khởi hành dự kiến, hạn mua, premium, payout và trạng thái. Khóa quyền lợi lúc mua; chống mua quá hạn và claim hai lần.
 - **Oracle:** demo local/mock được dùng nếu công bố rõ là mô phỏng; đánh giá tin cậy, dữ liệu sai/trễ, lộ khóa. Multi-oracle hoặc thời gian khiếu nại là phương án giảm thiểu, chỉ triển khai nếu còn thời gian.
-- **Stack:** thầy khuyến nghị Vyper + Ape + Anvil, trong khi kế hoạch cũ ghi Hardhat/Ganache. Tuần 1 kiểm tra khả năng triển khai và chọn một stack duy nhất; ưu tiên stack môn học nếu khả thi. Không dùng Ganache trong kế hoạch mới.
+- **Stack:** thầy khuyến nghị Vyper + Ape + Anvil, trong khi kế hoạch cũ ghi Hardhat/Ganache. Kiểm tra khả năng triển khai và chọn một stack duy nhất; ưu tiên stack môn học nếu khả thi. Không dùng Ganache trong kế hoạch mới.
 - **Graph:** chưa tự coi là bỏ yêu cầu Mức 4. Hỏi giảng viên graph analytics tối thiểu cần có. Nếu cần, dùng graph sân bay/tuyến bay từ data 2015 với centrality hoặc graph features; chưa làm GNN trước baseline và contract.
 
 Khảo sát repo graph mới nhất và xếp hạng khả năng dùng được lưu tại [`docs/graph-repo-research.md`](docs/graph-repo-research.md). Repo ANSP 2025 là method match để thử; dataset/target khác nên không được coi là đã tái lập trên Kaggle 2015.
 
-## Điều khoản bảo hiểm cần khóa trong tuần 1
+## Điều khoản bảo hiểm cần khóa trước khi triển khai
 
 Ghi quyết định vào `docs/decision-log.md` trước khi triển khai:
 
@@ -60,9 +60,9 @@ Phạm vi gọn đề xuất: một policy cho một chuyến, trigger trễ đ�
 - **Oracle:** adapter/mock có quyền; lưu nguồn và thời gian cập nhật. Nêu rõ mock không phải oracle production.
 - **Evaluation:** model metrics, phí thu/payout, loss ratio, pool solvency khi replay, gas, latency và transaction success rate.
 
-## Lịch 4 tuần và cổng hoàn thành
+## Giai đoạn triển khai và tiêu chí hoàn thành
 
-### Tuần 1 — Đề cương, policy, dữ liệu và stack
+### Giai đoạn 1 — Đề cương, policy, dữ liệu và stack
 
 **Đầu ra:** đề cương sạch, quyết định nghiệp vụ, data inventory bản đầu, kiến trúc và stack được chọn.
 
@@ -74,9 +74,9 @@ Phạm vi gọn đề xuất: một policy cho một chuyến, trigger trễ đ�
 - Chạy smoke test Vyper/Ape/Anvil; nếu không khả thi trong thời gian, ghi lý do và thống nhất stack thay thế.
 - Hỏi giảng viên: có cần thay dataset chính không; BTS mới chỉ là kiểm tra bổ sung có đúng không; graph tối thiểu cho Mức 4; stack Vyper/Ape/Anvil bắt buộc hay khuyến nghị.
 
-**Cổng tuần 1:** thống nhất điều khoản, đề cương hết placeholder, stack/phạm vi được ghi trong decision log.
+**Điều kiện hoàn thành giai đoạn 1:** thống nhất điều khoản, đề cương hết placeholder, stack/phạm vi được ghi trong decision log.
 
-### Tuần 2 — Baseline, model và Smart Contract
+### Giai đoạn 2 — Baseline, model và Smart Contract
 
 **Đầu ra:** pipeline baseline/model tái lập; contract local và test nghiệp vụ chính.
 
@@ -87,9 +87,9 @@ Phạm vi gọn đề xuất: một policy cho một chuyến, trigger trễ đ�
 - Viết contract policy, funding, oracle role, result và payout; khóa premium/payout/threshold khi mua; chặn mua quá hạn.
 - Test mua hợp lệ/không hợp lệ, hạn mua, trễ dưới/đúng/vượt ngưỡng, hủy, unauthorized oracle, claim trùng và thiếu quỹ.
 
-**Cổng tuần 2:** có kết quả model thực chạy; test contract cốt lõi pass; phân biệt rõ dữ liệu báo giá và dữ liệu quyết định bồi thường.
+**Điều kiện hoàn thành giai đoạn 2:** có kết quả model thực chạy; test contract cốt lõi pass; phân biệt rõ dữ liệu báo giá và dữ liệu quyết định bồi thường.
 
-### Tuần 3 — Oracle, DApp, tích hợp và pool
+### Giai đoạn 3 — Oracle, DApp, tích hợp và pool
 
 **Đầu ra:** demo end-to-end trên local chain và dashboard có kết quả.
 
@@ -101,9 +101,9 @@ Phạm vi gọn đề xuất: một policy cho một chuyến, trigger trễ đ�
 - Nếu graph được yêu cầu: dựng directed airport-route graph từ 2015, tính degree/PageRank/betweenness hoặc graph features. Chỉ so sánh model có/không graph nếu còn thời gian.
 - Nếu BTS mới được duyệt và lấy thuận tiện: kiểm tra phụ một giai đoạn, so sánh tỷ lệ biến cố/mức phí; ghi khác biệt dữ liệu, không gộp tùy tiện.
 
-**Cổng tuần 3:** chạy được quote → mua → oracle → quyết định → payout; pool replay và số đo có thể tái lập.
+**Điều kiện hoàn thành giai đoạn 3:** chạy được quote → mua → oracle → quyết định → payout; pool replay và số đo có thể tái lập.
 
-### Tuần 4 — Bảo mật, báo cáo, demo và bàn giao
+### Giai đoạn 4 — Bảo mật, báo cáo, demo và bàn giao
 
 **Đầu ra:** source, báo cáo, slide, video và README khớp sản phẩm thật.
 
@@ -124,7 +124,7 @@ Phạm vi gọn đề xuất: một policy cho một chuyến, trigger trễ đ�
 3. Vyper + Ape + Anvil bắt buộc hay khuyến nghị? Nếu nhóm đã bắt đầu Solidity, có được giữ không?
 4. Mock oracle local có đủ cho demo hay cần multi-oracle/testnet thật?
 5. Hạn mua nên theo mốc nào; có yêu cầu X giờ trước chuyến bay không?
-6. Track chấm, tổng Track B hiển thị 105, hạn nộp và ngày bảo vệ được xác nhận thế nào?
+6. Track chấm và tổng Track B hiển thị 105 được xác nhận thế nào?
 
 ## Checklist sản phẩm hệ thống
 
@@ -141,7 +141,7 @@ Phạm vi gọn đề xuất: một policy cho một chuyến, trigger trễ đ�
 
 ## Nguyên tắc thực hiện
 
-- Mỗi tuần ưu tiên một luồng end-to-end có thể chứng minh.
+- Ưu tiên các luồng end-to-end có thể chứng minh.
 - Không chọn repo chỉ vì metric cao; kiểm tra task, label, split, leakage, license và khả năng chạy.
 - Repo Prashant chỉ là baseline/tham khảo tabular cho arrival delay; không có graph sân bay hoặc insurance/contract.
 - Không dùng kết quả upstream làm kết quả ANTs, không tự tạo số đo.

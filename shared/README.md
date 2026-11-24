@@ -1,6 +1,6 @@
 # Giao nhận tích hợp giữa ba module
 
-Dùng thư mục này cho schema và fixture đã thống nhất. Task QA01, NG01, TH03 và TH04 khóa giao nhận theo [bảng phân công](../outputs/ants-allocation-20261215/ANTs-Phan-cong-15-12-2026.xlsx). [Policy V1](../docs/insurance-policy-v1.md) là căn cứ cho điều khoản và kết quả kỳ vọng.
+Dùng thư mục này cho schema và fixture đã thống nhất. Xem [phân công nhóm](../docs/team-allocation.md) để biết đầu ra của từng module. [Policy V1](../docs/insurance-policy-v1.md) là căn cứ cho điều khoản và kết quả kỳ vọng.
 
 | Đầu ra | Người giao | Người dùng |
 | --- | --- | --- |

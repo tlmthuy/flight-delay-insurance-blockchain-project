@@ -40,7 +40,7 @@ Trạng thái: **đã chốt ở cấp nhóm, cần xác nhận với giảng vi
 
 ### Ý định mới của nhóm
 
-Nhóm đang cân nhắc **đổi dataset** và chọn một **open-source project/method có metric công bố cao** để tái lập hoặc điều chỉnh cho đồ án. Mục tiêu là tận dụng code và dữ liệu phù hợp trong thời gian còn khoảng một tháng. Chưa chốt dataset, repo, model, nhãn, metric hay phạm vi graph.
+Nhóm từng cân nhắc **đổi dataset** và chọn một **open-source project/method có metric công bố cao** để tái lập hoặc điều chỉnh cho đồ án. Mục tiêu là tận dụng code và dữ liệu phù hợp. Ở thời điểm khảo sát này, dataset, repo, model, nhãn, metric và phạm vi graph còn chờ chốt.
 
 **Kiểm tra nhất quán với hồ sơ:** xác nhận đăng ký nêu cụ thể dataset Kaggle năm 2015 và dùng dữ liệu đó để định phí bảo hiểm. Vì vậy mặc định ưu tiên repo/method có thể chạy trên dataset 2015. Đổi dataset sẽ làm lệch chi tiết hồ sơ, cần hỏi giảng viên trước khi thay đổi thực nghiệm chính.
 
@@ -54,14 +54,14 @@ Khi tìm repo/dataset, lập bảng đối chiếu các mục sau trước khi c
 4. Cách chia train/validation/test, có temporal split hay không, có leakage hay không.
 5. Metric nào được báo cáo, cách tính, baseline so sánh và kết quả có tái lập được không.
 6. Graph definition: node, edge, weight, graph snapshot, node/edge feature và cách tránh dùng tương lai.
-7. Môi trường chạy, dependency, phần cứng, thời gian huấn luyện và mức độ dễ chạy trong một tháng.
+7. Môi trường chạy, dependency, phần cứng, thời gian huấn luyện và khả năng tái lập.
 8. Mức độ khớp với policy insurance: dự đoán rủi ro trước chuyến bay, hủy/trễ theo ngưỡng hợp đồng, và đầu ra có dùng để đề xuất phí được không.
 
 Metric cao từ repo khác không đảm bảo sẽ lặp lại trên dataset/label khác. Không trích metric gốc như kết quả của nhóm. Chạy lại baseline và model trên test set riêng, cùng cách chia dữ liệu, rồi báo metric thực tế.
 
 ### Thứ tự ưu tiên hiện tại
 
-Theo khả năng tái lập trong một tháng và mức khớp với đề tài, hiện ưu tiên:
+Theo khả năng tái lập và mức khớp với đề tài, hiện ưu tiên:
 
 1. `Prashant-4527/flight-delay-prediction` với US DOT/BTS 2015. Cùng data, MIT, có pipeline LR/RF/XGBoost. Phải đổi nhãn, bỏ feature leakage và chạy lại.
 2. Pipeline baseline Logistic Regression tự viết trên dataset 2015, tham khảo tutorial Data UAB. Dễ chạy để đối chiếu và ít phụ thuộc.
@@ -123,11 +123,11 @@ Phạm vi DApp tối thiểu đề xuất gồm: nhập/chọn chuyến bay, xem
 - [ ] Chốt prediction time và chỉ dùng đặc trưng đã biết tại thời điểm đó.
 - [ ] Chốt graph definition và mức graph method cần triển khai.
 - [ ] Chốt track chấm, hạn nộp, lịch bảo vệ và yêu cầu testnet với giảng viên.
-- [ ] Chốt scope Smart Contract/DApp trong điều kiện thời gian một tháng.
+- [ ] Chốt phạm vi Smart Contract/DApp theo khả năng triển khai và kiểm thử của nhóm.
 
 ## Kế hoạch thực hiện tiếp theo
 
-Kế hoạch cũ tìm 3–5 cặp repo/dataset đã được thay bằng kế hoạch cập nhật sau khi nhận nhận xét giảng viên. Theo thứ tự ưu tiên và cổng quyết định mới tại `PROJECT_PLAN_1_MONTH.md`: hoàn thiện đề cương/tài liệu, chốt điều khoản và stack, giữ dataset 2015 trừ khi có xác nhận khác, chạy baseline trước khi mở rộng graph.
+Kế hoạch cũ tìm 3–5 cặp repo/dataset đã được thay bằng kế hoạch cập nhật sau khi nhận nhận xét giảng viên. Theo thứ tự ưu tiên và cổng quyết định mới tại `PROJECT_PLAN.md`: hoàn thiện đề cương/tài liệu, chốt điều khoản và stack, giữ dataset 2015 trừ khi có xác nhận khác, chạy baseline trước khi mở rộng graph.
 
 ## Buổi hỏi giảng viên
 
@@ -152,4 +152,4 @@ Nhóm đã cung cấp nhận xét bằng văn bản trên đề cương/đăng k
 
 Khảo sát mới tìm được repo/paper sát hướng graph-delay propagation hơn PageRank topology thuần: `yajun668/FlightDelayPrediction` (bài Decision Support Systems 2025, Airport-Network-Spilled Propagation score). Code MIT và dataset BTS/FAA/IEM riêng trên Mendeley CC BY 4.0; thí nghiệm upstream dùng 2023, dự đoán departure delay và khác dataset/label bảo hiểm của nhóm. Đây là method tham khảo/ứng viên tái lập, chưa phải quyết định đổi dataset hoặc clone repo. Chi tiết và các lựa chọn khác ở `docs/graph-repo-research.md`.
 
-Kế hoạch hành động đã cập nhật trong `PROJECT_PLAN_1_MONTH.md`; toàn bộ nhận xét và trạng thái câu hỏi nằm trong `docs/lecturer-feedback.md`.
+Kế hoạch hành động đã cập nhật trong `PROJECT_PLAN.md`; toàn bộ nhận xét và trạng thái câu hỏi nằm trong `docs/lecturer-feedback.md`.

@@ -16,4 +16,4 @@ Nhận xét bằng văn bản đã được lưu tại `lecturer-feedback.md`. T
 
 - Mở đầu bằng đề tài, mã nhóm Q4H648 và một sơ đồ luồng ngắn.
 - Nêu lựa chọn đề xuất và lý do; hỏi giảng viên xác nhận các điểm còn mở thay vì trình bày chúng như yêu cầu đã chốt.
-- Ghi nguyên ý phản hồi cùng ngày nhận vào `lecturer-feedback.md`, sau đó cập nhật `decision-log.md` và `PROJECT_PLAN_1_MONTH.md` nếu có thay đổi.
+- Ghi nguyên ý phản hồi cùng ngày nhận vào `lecturer-feedback.md`, sau đó cập nhật `decision-log.md` và `PROJECT_PLAN.md` nếu có thay đổi.

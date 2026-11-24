@@ -14,7 +14,7 @@ git pull --ff-only origin main
 git switch -c feat/qa02-quote-screen
 ```
 
-Lấy mã, hạn và điều kiện nghiệm thu từ [sheet ngày 15/12](outputs/ants-allocation-20261215/ANTs-Phan-cong-15-12-2026.xlsx). Một nhánh cho một task hoặc một nhóm task phụ thuộc chặt được ghi rõ trong PR. Dùng `feat/`, `fix/`, `docs/` hoặc `chore/`, ví dụ `feat/ng03-policy-label`, `feat/th05-purchase-reserve`, `chore/th08-optimizer-benchmark`.
+Đối chiếu [phân công nhóm](docs/team-allocation.md) để xác định module và đầu ra. Một nhánh cho một task hoặc một nhóm task phụ thuộc chặt được ghi rõ trong PR. Dùng `feat/`, `fix/`, `docs/` hoặc `chore/`, kèm mã task nếu đã có, ví dụ `feat/ng03-policy-label`, `feat/th05-purchase-reserve`, `chore/th08-optimizer-benchmark`.
 
 ## Commit và mở PR
 
@@ -30,7 +30,7 @@ Lấy mã, hạn và điều kiện nghiệm thu từ [sheet ngày 15/12](output
    git push -u origin feat/qa02-quote-screen
    ```
 
-3. Mở PR vào `main`, dùng [mẫu PR](.github/pull_request_template.md) và yêu cầu review từ một người khác. Khi PR đổi dữ liệu bàn giao, yêu cầu reviewer là người sử dụng đầu ra ở module kế bên. Dán link PR hoặc bằng chứng vào sheet.
+3. Mở PR vào `main`, dùng [mẫu PR](.github/pull_request_template.md) và yêu cầu review từ một người khác. Khi PR đổi dữ liệu bàn giao, yêu cầu reviewer là người sử dụng đầu ra ở module kế bên. Gắn issue liên quan và ghi bằng chứng trong PR.
 4. Khi cần đồng bộ, lưu công việc trên nhánh task, chạy `git fetch origin` và `git merge origin/main`. Giải quyết xung đột với người phụ trách đoạn bị ảnh hưởng, rồi chạy lại kiểm tra liên quan.
 5. Merge sau khi đã xử lý review và kiểm tra đạt. Nhóm dùng squash merge nếu remote hỗ trợ. Mỗi người push nhánh task của mình. `main` nhận thay đổi qua PR và tránh force push trên nhánh dùng chung.
 
@@ -42,10 +42,10 @@ Lấy mã, hạn và điều kiện nghiệm thu từ [sheet ngày 15/12](output
 | Nguyên | Quốc Anh cho giao nhận quote, Thùy cho nhãn và điều khoản | Lệnh tái lập, temporal split, metric từ lần chạy của nhóm, vector quote đọc được. |
 | Thùy | Quốc Anh cho ABI/event, Nguyên cho quote/nhãn | Compile, test policy/oracle/quỹ, chạy local và gửi ABI nếu interface đổi. |
 
-Các PR thay đổi Policy V1 hoặc giao diện dùng chung nêu tác động tới cả ba module và thống nhất thứ tự merge. Đánh dấu **Xong** khi có đầu ra đạt tiêu chí trong sheet và bằng chứng có thể mở hoặc chạy lại.
+Các PR thay đổi Policy V1 hoặc giao diện dùng chung nêu tác động tới cả ba module và thống nhất thứ tự merge. Đánh dấu **Xong** khi đầu ra đạt tiêu chí đã ghi trong issue hoặc PR và bằng chứng có thể mở hoặc chạy lại.
 
 ## Thiết lập remote và bàn giao
 
 - Người quản lý remote mời ba thành viên, đặt `main` làm mặc định và bật yêu cầu PR + một review nếu gói GitHub hỗ trợ. Mẫu PR có hiệu lực khi có trên nhánh mặc định. [GitHub branch protection](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) · [GitHub PR template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)
 - Commit source, lockfile của công cụ đã chọn, fixture nhỏ, cấu hình mẫu và bản tổng hợp kết quả đủ tái lập. Giữ dataset gốc, file sinh lại được, cache, log thô và khóa riêng ở local hoặc nơi lưu nội bộ phù hợp. Ghi nguồn, license và commit của code tham khảo nếu tái sử dụng.
-- Nguyên xác nhận commit hoặc tag của bản nộp và README. Thùy đối chiếu số liệu trong PDF/slide. Quốc Anh đối chiếu video và kiểm đủ năm giao phẩm ngày 15/12.
+- Nguyên xác nhận commit hoặc tag của bản nộp và README. Thùy đối chiếu số liệu trong PDF/slide. Quốc Anh đối chiếu video và kiểm đủ năm giao phẩm.

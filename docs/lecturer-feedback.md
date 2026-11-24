@@ -21,13 +21,13 @@ Nhóm cung cấp nhận xét bằng văn bản; ngày nhận chưa được ghi 
 - **Trung bình — oracle:** Python script đơn là điểm tin cậy tập trung; phân tích ghi sai/trễ, lộ khóa. Cân nhắc nhiều oracle ký, cửa sổ khiếu nại và giới hạn chi trả mỗi chuyến.
 - **Trung bình — dữ liệu:** 2015 khá cũ; có thể bổ sung dữ liệu BTS mới hơn để kiểm tra mức phí. `flights.csv` khoảng 5,8 triệu dòng; tháng 10/2015 mã sân bay có thể ở dạng số cần ánh xạ.
 - **Thấp — phạm vi:** nhóm 3 người nên giữ phạm vi gọn.
-- **Báo cáo tuần 3:** tối thiểu 3 bài bình duyệt về blockchain parametric insurance, oracle và flight-delay prediction; Etherisc/AXA là ứng dụng tham khảo. Cần bảng input/output (flight ID, ngày, mức bảo hiểm → policy ID, phí, payout, trạng thái).
+- **Báo cáo:** tối thiểu 3 bài bình duyệt về blockchain parametric insurance, oracle và flight-delay prediction; Etherisc/AXA là ứng dụng tham khảo. Cần bảng input/output (flight ID, ngày, mức bảo hiểm → policy ID, phí, payout, trạng thái).
 
 ### Trạng thái và việc cần hỏi tiếp
 
 | Nội dung | Trạng thái | Việc tiếp theo |
 | --- | --- | --- |
-| Nhận xét về đề cương | Đã nhận bằng văn bản; ngày chưa ghi | Áp dụng checklist trong `PROJECT_PLAN_1_MONTH.md` |
+| Nhận xét về đề cương | Đã nhận bằng văn bản; ngày chưa ghi | Áp dụng checklist trong `PROJECT_PLAN.md` |
 | Mức Research / Track chấm | Mức 4 vẫn là mức đăng ký; track chưa xác nhận | Hỏi track áp dụng và cách tính Track B hiển thị 105 |
 | AI/ML | Góp ý baseline + LR/XGBoost calibration | Chạy temporal split, feature có trước chuyến bay |
 | Graph Analytics | Nhận xét vừa nhận không nói rõ | Hỏi yêu cầu tối thiểu cho Mức 4; chưa tự bỏ hoặc mở rộng sang GNN |
